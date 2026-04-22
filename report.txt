@@ -1,0 +1,6 @@
+Ali | Marks: 15 | Good | Valid Email
+Sara | Marks: 10 | Underperforming | Invalid Email
+Ahmed | Marks: 8 | Underperforming | Valid Email
+Ayesha | Marks: 18 | Good | Valid Email
+Bilal | Marks: 5 | Underperforming | Invalid Email
+iqra | Marks: 97 | Good | Valid Email
