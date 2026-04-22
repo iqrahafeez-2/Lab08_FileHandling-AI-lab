@@ -1,0 +1,52 @@
+import csv
+import re
+
+students = []
+
+with open('students.csv', 'r') as file:
+    reader = csv.DictReader(file)
+    for row in reader:
+        students.append(row)
+
+print("Enter a new student record")
+name = input("Enter name: ")
+marks = input("Enter marks: ")
+email = input("Enter email: ")
+
+students.append({
+    "name": name,
+    "marks": marks,
+    "email": email
+})
+
+report = ""
+print("\n=== Student Report ===\n")
+
+for row in students:
+    name = row['name']
+    marks = int(row['marks'])
+    email = row['email']
+
+  
+    if marks < 12:
+        status = "Underperforming"
+    else:
+        status = "Good"
+
+  
+    pattern = r'^[\w\.-]+@[\w\.-]+\.\w+$'
+    if re.match(pattern, email):
+        email_status = "Valid Email"
+    else:
+        email_status = "Invalid Email"
+
+    output = f"{name} | Marks: {marks} | {status} | {email_status}"
+    print(output)
+
+    report += output + "\n"
+
+
+with open('report.txt', 'w') as file:
+    file.write(report)
+
+print("\nReport generated successfully!")
